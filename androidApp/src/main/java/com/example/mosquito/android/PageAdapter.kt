@@ -6,6 +6,11 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
 class PageAdapter(fm:FragmentManager) : FragmentPagerAdapter(fm){
+
+    override fun getCount(): Int {
+        return 3
+    }
+
     override fun getItem(position: Int) : Fragment {
         when(position){
             0->{return Fragment1()}
@@ -22,9 +27,5 @@ class PageAdapter(fm:FragmentManager) : FragmentPagerAdapter(fm){
             2->{return "Tab3"}
         }
         return super.getPageTitle(position)
-    }
-
-    override fun getCount(): Int {
-        return 3
     }
 }
