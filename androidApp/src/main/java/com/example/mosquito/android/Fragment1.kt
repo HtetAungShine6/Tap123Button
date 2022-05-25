@@ -11,6 +11,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.mosquito.android.PageAdapter.Companion.resultText
+import kotlinx.android.synthetic.main.fragment_1.*
 
 
 class Fragment1 : Fragment(),View.OnClickListener{
@@ -31,18 +33,21 @@ class Fragment1 : Fragment(),View.OnClickListener{
     }
 
     companion object {
+        const val KEY_FRAGMENT1 = "KEY_FRAG1"
         fun newInstance(): Fragment1 {
             return Fragment1()
         }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+    }
+
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.button1 -> {
-                val et1: EditText = requireView().findViewById(R.id.editText1)
-                val text1: TextView = requireView().findViewById(R.id.textView1)
-                var c = et1.getText().toString()
-                text1.setText(c)
+                textView1.setText(editText1.getText())
             }
             else -> {
             }
