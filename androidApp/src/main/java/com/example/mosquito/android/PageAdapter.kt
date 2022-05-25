@@ -1,31 +1,29 @@
 package com.example.mosquito.android
 
+import android.os.Bundle
 import android.os.Parcelable
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.mosquito.android.Fragment1.Companion.KEY_FRAGMENT1
+class PageAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
 
-class PageAdapter(fm:FragmentManager) : FragmentPagerAdapter(fm){
+    companion object {
+        lateinit var resultText: String
+    }
 
-    override fun getCount(): Int {
+    override fun getItemCount(): Int {
         return 3
     }
 
-    override fun getItem(position: Int) : Fragment {
-        when(position){
-            0->{return Fragment1()}
-            1->{return Fragment2()}
-            2->{return Fragment3()}
-            else -> {return Fragment()}
+    override fun createFragment(position: Int): Fragment {
+        return when (position) {
+            0 -> Fragment1()
+            1 -> Fragment2()
+            2 -> Fragment3()
+            else -> Fragment()
         }
-    }
-
-    override fun getPageTitle(position: Int): CharSequence? {
-        when(position){
-            0->{return "Tab1"}
-            1->{return "Tab2"}
-            2->{return "Tab3"}
-        }
-        return super.getPageTitle(position)
     }
 }

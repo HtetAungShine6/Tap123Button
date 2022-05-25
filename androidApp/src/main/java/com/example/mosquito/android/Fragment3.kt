@@ -10,6 +10,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.fragment_1.*
+import kotlinx.android.synthetic.main.fragment_3.*
 
 
 class Fragment3 : Fragment(),View.OnClickListener {
@@ -38,10 +40,7 @@ class Fragment3 : Fragment(),View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.button3 -> {
-                val et3: EditText = requireView().findViewById(R.id.editText3)
-                val text3: TextView = requireView().findViewById(R.id.textView3)
-                var a = et3.getText().toString()
-                text3.setText(a)
+                textView3.setText(editText3.getText())
             }
             else -> {
             }
