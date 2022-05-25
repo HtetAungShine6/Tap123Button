@@ -53,5 +53,4 @@ class Fragment1 : Fragment(),View.OnClickListener{
             }
         }
     }
-
 }
